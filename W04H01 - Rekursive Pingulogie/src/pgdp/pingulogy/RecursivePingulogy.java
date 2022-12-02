@@ -9,12 +9,32 @@ public class RecursivePingulogy {
 	static int PADDING = 123;
 	static long VALUE_NOT_CALCULATED = -1;
 	static long[] pinguSequenceDp;
+
+	static long registeredP0 = -1, registertedP1 = -1, registertedP2 = -1;
 	static int LIST_SIZE = 268;
 	static int intermediateResult = 0;
 
 	// task 1
 	public static long pinguSequenceRec(int n, int p0, int p1, int p2) {
 
+		// initial test case
+		if(registeredP0 == VALUE_NOT_CALCULATED
+				&& registertedP1 == VALUE_NOT_CALCULATED
+				&& registertedP2 == VALUE_NOT_CALCULATED) {
+			registeredP0 = p0;
+			registertedP1 = p1;
+			registertedP2 = p2;
+		}
+
+		// if the base values change
+		if(registeredP0 != p0 || registertedP1 != p1 || registertedP2 != p2) {
+			registeredP0 = p0;
+			registertedP1 = p1;
+			registertedP2 = p2;
+			Arrays.fill(pinguSequenceDp, VALUE_NOT_CALCULATED);
+		}
+
+		// out of limit case
 		if (n < -122 || n > 145) return -1;
 
 		// dinamic case
