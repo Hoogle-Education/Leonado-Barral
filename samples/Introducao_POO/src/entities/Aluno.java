@@ -55,6 +55,7 @@ public class Aluno {
     public void fazerAniversario(){
         idade++;
     }
+    
     private boolean isMultipleOf(int number, int... divisors) {
         for(int x : divisors){
             if(number%x != 0)
