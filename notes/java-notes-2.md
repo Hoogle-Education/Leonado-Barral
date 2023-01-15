@@ -55,7 +55,7 @@ public Retangulo extends FormaGeometrica {
 
   // getter and setter ...
 
-  @Override
+  @Override // sobreescrever
   public double area(){
     return comprimento * altura;
   }
